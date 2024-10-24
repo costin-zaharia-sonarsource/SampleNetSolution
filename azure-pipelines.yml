@@ -10,13 +10,14 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: CmdLine@2
-  displayName: Debug
+
+- task: PowerShell@2
   inputs:
+    targetType: 'inline'
     script: |
-      echo 'Build.SourcesDirectory'
-      echo $(Build.SourcesDirectory)
-      ls -l $(Build.SourcesDirectory)
+      Write-Host "TF_BUILD_SOURCESDIRECTORY               : $env:TF_BUILD_SOURCESDIRECTORY"
+      Write-Host "BUILD_SOURCESDIRECTORY                  : $env:BUILD_SOURCESDIRECTORY"
+      Write-Host "Build.SourcesDirectory                  : $(Build.SourcesDirectory)"
 
 - task: SonarCloudPrepare@3
   inputs:
