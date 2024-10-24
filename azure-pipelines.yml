@@ -10,6 +10,14 @@ pool:
   vmImage: macOS-latest
 
 steps:
+- task: CmdLine@2
+  displayName: Debug
+  inputs:
+    script: |
+      echo 'Build.SourcesDirectory'
+      echo $(Build.SourcesDirectory)
+      ls -l $(Build.SourcesDirectory)
+
 - task: SonarCloudPrepare@3
   inputs:
     SonarCloud: 'SonarCloud - Costin Z Token'
