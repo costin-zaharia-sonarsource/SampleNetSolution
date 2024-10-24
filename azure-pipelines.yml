@@ -28,7 +28,7 @@ steps:
     SonarCloud: 'SonarCloud - Costin Z Token'
     organization: 'costin-zaharia-sonarsource'
     scannerMode: 'MSBuild'
-    msBuildVersion: '8.0.2.98917'
+    msBuildVersion: '8.0.1.97834'
     projectKey: 'DevOps-Extension'
     projectName: 'DevOps-Extension'
     extraProperties: |
