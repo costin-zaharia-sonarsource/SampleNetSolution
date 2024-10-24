@@ -17,7 +17,9 @@ steps:
     scannerMode: 'dotnet'
     projectKey: 'DevOps-Extension'
     projectName: 'DevOps-Extension'
-    extraProperties: sonar.verbose=true
+    extraProperties: |
+      sonar.verbose=true
+      sonar.projectBaseDir=$(Build.SourcesDirectory)
 
 - task: DotNetCoreCLI@2
   inputs:
