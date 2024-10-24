@@ -15,8 +15,12 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      Write-Host "TF_BUILD_BUILDURI                       : $env:TF_BUILD_BUILDURI"
       Write-Host "TF_BUILD_SOURCESDIRECTORY               : $env:TF_BUILD_SOURCESDIRECTORY"
+
+      Write-Host "BUILD_BUILDURI                          : $env:BUILD_BUILDURI"
       Write-Host "BUILD_SOURCESDIRECTORY                  : $env:BUILD_SOURCESDIRECTORY"
+
       Write-Host "Build.SourcesDirectory                  : $(Build.SourcesDirectory)"
 
 - task: SonarCloudPrepare@3
