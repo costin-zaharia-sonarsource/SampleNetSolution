@@ -12,6 +12,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      Write-Host "TF_BUILD                                : $env:TF_BUILD"
       Write-Host "TF_BUILD_BUILDURI                       : $env:TF_BUILD_BUILDURI"
       Write-Host "TF_BUILD_SOURCESDIRECTORY               : $env:TF_BUILD_SOURCESDIRECTORY"
 
