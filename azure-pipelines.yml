@@ -10,11 +10,11 @@ pool:
   vmImage: macOS-latest
 
 steps:
-- task: SonarCloudPrepare@1
+- task: SonarCloudPrepare@3
   inputs:
     SonarCloud: 'SonarCloud - Costin Z Token'
     organization: 'costin-zaharia-sonarsource'
-    scannerMode: 'MSBuild'
+    scannerMode: 'dotnet'
     projectKey: 'DevOps-Extension'
     projectName: 'DevOps-Extension'
     extraProperties: sonar.verbose=true
@@ -25,10 +25,10 @@ steps:
     projects: '**/*.csproj'
     arguments: '--collect "Code coverage"'
 
-- task: SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@3
   inputs:
     jdkversion: 'JAVA_HOME_17_X64'
 
-- task: SonarCloudPublish@1
+- task: SonarCloudPublish@3
   inputs:
     pollingTimeoutSec: '300'
