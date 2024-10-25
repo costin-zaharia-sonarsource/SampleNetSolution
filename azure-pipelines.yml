@@ -21,8 +21,10 @@ steps:
 
       Write-Host "Build.SourcesDirectory                  : $(Build.SourcesDirectory)"
 
-      dotnet ./s/scanner/SonarScanner.MSBuild.dll begin /o:"costin-sonar" /k:"costin-sonar_sample-dotnet" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.token="$(SONAR_TOKEN)" /d:sonar.verbose=true
+      sudo chmod +x /home/vsts/work/1/s/scanner/sonar-scanner-5.0.1.3006/bin/sonar-scanner
+      
+      dotnet /home/vsts/work/1/s/scanner/SonarScanner.MSBuild.dll begin /o:"costin-sonar" /k:"costin-sonar_sample-dotnet" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.token="$(SONAR_TOKEN)" /d:sonar.verbose=true
 
-      dotnet test ./s/SampleNetSolution.sln --collect "Code coverage"
+      dotnet test /home/vsts/work/1/s/SampleNetSolution.sln --collect "Code coverage"
 
-      dotnet ./s/scanner/SonarScanner.MSBuild.dll end /d:sonar.login="$(SONAR_TOKEN)"
+      dotnet /home/vsts/work/1/s/scanner/SonarScanner.MSBuild.dll end /d:sonar.login="$(SONAR_TOKEN)"
