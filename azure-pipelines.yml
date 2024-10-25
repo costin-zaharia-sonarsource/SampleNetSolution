@@ -21,8 +21,6 @@ steps:
 
       Write-Host "Build.SourcesDirectory                  : $(Build.SourcesDirectory)"
 
-      cd "$(Pipeline.Workspace)"
-
       dotnet ./s/scanner/SonarScanner.MSBuild.dll begin /o:"costin-sonar" /k:"costin-sonar_sample-dotnet" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.token="$(SONAR_TOKEN)" /d:sonar.verbose=true
 
       dotnet test ./s/SampleNetSolution.sln --collect "Code coverage"
