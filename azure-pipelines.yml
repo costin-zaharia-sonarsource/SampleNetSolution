@@ -31,6 +31,7 @@ steps:
     projectName: 'DevOps-Extension'
     extraProperties: |
       sonar.verbose=true
+      sonar.projectBaseDir=C:\_IT\LogixApplications\apps\mvc\LogixStaffing
 
 - task: DotNetCoreCLI@2
   inputs:
